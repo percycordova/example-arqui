@@ -1,30 +1,37 @@
-import { ReactNode } from 'react'
-import clsx from 'clsx'
+import React from "react";
+import { IconType } from "react-icons";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
-  variant?: 'add' | 'cancel'
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+  color?: string; 
+  icon?: IconType;
+  disabled?: boolean;
 }
 
-export const Button = ({
-  children,
-  variant = 'add',
-  className,
-  ...props
-}: ButtonProps) => {
-  const baseStyle = 'text-white px-4 py-2 rounded font-medium cursor-pointer transition duration-300 ease-in-out'
-  const variantStyle = {
-    add: 'bg-primary hover:opacity-75',
-    cancel: 'bg-red-500 hover:opacity-75',
-  }
-
+const Button: React.FC<ButtonProps> = ({
+  text,
+  onClick,
+  color = "blue",
+  icon: Icon,
+  disabled = false,
+}) => {
+  const colorClasses: Record<string, string> = {
+    blue: "text-blue-700 hover:text-blue-800 cursor-pointer",
+    green: "bg-green-600 py-1 text-white hover:bg-green-700 cursor-pointer",
+  };
   return (
     <button
-      type="button"
-      className={clsx(baseStyle, variantStyle[variant], className)}
-      {...props}
+      className={`flex items-center text-base gap-1 px-5 mt-4 rounded transition-colors duration-200 
+      ${colorClasses[color]} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+      onClick={onClick}
+      disabled={disabled}
     >
-      {children}
+      {Icon && <Icon size={15} />}
+      <span>{text}</span>
     </button>
-  )
-}
+  );
+};
+
+export default Button;
+
