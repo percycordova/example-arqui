@@ -16,7 +16,6 @@ const dataReference: Cliente[] = [
 ];
 
 const CustomerRecordPage = () => {
-  const [clientes, setClientes] = useState<Cliente[]>(dataReference);
   const [description, setDescripcion] = useState("");
 
   return (
@@ -25,13 +24,13 @@ const CustomerRecordPage = () => {
 
       <TableCrud
         headers={["Nombre", "Tipo", "Estado"]}
-        data={clientes.map((c) => [c.nombre, c.tipo, c.estado])}
-        onEdit={(index) => console.log("Editar cliente:", clientes[index])}
+        data={dataReference.map((c) => [c.nombre, c.tipo, c.estado])}
+        onEdit={(index) => console.log("Editar cliente:", dataReference[index])}
         onDelete={(index) =>
-          setClientes((prev) => prev.filter((_, i) => i !== index))
+          console.log("Eliminar cliente:", dataReference[index])
         }
       />
-      
+
       <InputField description="Descripción:" onValueChange={setDescripcion} />
       
       <div className="flex justify-end">

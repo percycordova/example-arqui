@@ -10,26 +10,27 @@ interface Cliente {
   cartera: string;
 }
 
-const dataReference: Cliente[] = [
+  const dataReference: Cliente[] = [
   { codigo: 1, descripcion: "Prueba 1", cartera: "Activo" },
   { codigo: 2, descripcion: "Prueba 2", cartera: "Inactivo" },
-];
+  { codigo: 3, descripcion: "Prueba 3", cartera: "Activo" },
+  { codigo: 4, descripcion: "Prueba 4", cartera: "Activo" },
+  { codigo: 5, descripcion: "Prueba 5", cartera: "Activo" },
+  ];
 
 const LegalRecordPage = () => {
-  const [clientes, setClientes] = useState<Cliente[]>(dataReference);
   const [codigo, setCodigo] = useState("");
   const [description, setDescripcion] = useState("");
-  
   return (
     <div className="px-6">
       <h1 className="flex justify-end text-2xl font-bold mb-4">Ficha Judicial</h1>
 
       <TableCrud
-        headers={["Código", "Descripción", "Tipo de cartera"]}
-        data={clientes.map((c) => [c.codigo, c.descripcion, c.cartera])}
-        onEdit={(index) => console.log("Editar cliente:", clientes[index])}
+        headers={["Numero", "Descripción", "Tipo de cartera"]}
+        data={dataReference.map((c) => [c.codigo, c.descripcion, c.cartera])}
+        onEdit={(index) => console.log("Editar cliente:", dataReference[index])}
         onDelete={(index) =>
-          setClientes((prev) => prev.filter((_, i) => i !== index))
+          console.log("Eliminar cliente:", dataReference[index])
         }
       />
       <InputField description="Código:" onValueChange={setCodigo} />
