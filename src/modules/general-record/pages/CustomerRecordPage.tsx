@@ -1,7 +1,7 @@
 import { useState } from "react";
-import TableCrud from "@/common/ui/TableCrud";
-import InputField from "@/common/ui/InputField";
-import Button from "@/common/ui/Button";
+import TableCrud from "@/components/ui/TableCrud";
+import InputField from "@/components/ui/InputField";
+import Button from "@/components/ui/Button";
 import { IoAddCircleOutline } from "react-icons/io5";
 
 interface Cliente {

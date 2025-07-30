@@ -1,5 +1,5 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import Button from "../ui/Button";
+import Button from "../components/ui/Button";
 import { FaArrowLeft } from "react-icons/fa";
 
 const AppLayout = () => {
