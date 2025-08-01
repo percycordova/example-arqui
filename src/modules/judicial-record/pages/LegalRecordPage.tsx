@@ -2,7 +2,7 @@ import { useState } from "react";
 import TableCrud from "@/components/ui/TableCrud";
 import InputField from "@/components/ui/InputField";
 import Button from "@/components/ui/Button";
-import { IoAddCircleOutline } from "react-icons/io5";
+
 
 interface Cliente {
   codigo: number;
@@ -10,13 +10,13 @@ interface Cliente {
   cartera: string;
 }
 
-  const dataReference: Cliente[] = [
+const dataReference: Cliente[] = [
   { codigo: 1, descripcion: "Prueba 1", cartera: "Activo" },
   { codigo: 2, descripcion: "Prueba 2", cartera: "Inactivo" },
   { codigo: 3, descripcion: "Prueba 3", cartera: "Activo" },
   { codigo: 4, descripcion: "Prueba 4", cartera: "Activo" },
   { codigo: 5, descripcion: "Prueba 5", cartera: "Activo" },
-  ];
+];
 
 const LegalRecordPage = () => {
   const [codigo, setCodigo] = useState("");
@@ -35,13 +35,13 @@ const LegalRecordPage = () => {
       />
       <InputField description="Código:" onValueChange={setCodigo} />
       <InputField description="Descripción:" onValueChange={setDescripcion} />
-      
+
       <div className="flex justify-end">
         <Button
           text="Agregar"
           onClick={() => alert("Agregado")}
           color="green"
-          icon={IoAddCircleOutline}
+
         />
       </div>
     </div>

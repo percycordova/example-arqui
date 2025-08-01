@@ -1,11 +1,10 @@
 import React from "react";
-import { IconType } from "react-icons";
+
 
 interface ButtonProps {
   text: string;
   onClick: () => void;
-  color?: string; 
-  icon?: IconType;
+  color?: string;
   disabled?: boolean;
 }
 
@@ -13,7 +12,6 @@ const Button: React.FC<ButtonProps> = ({
   text,
   onClick,
   color = "blue",
-  icon: Icon,
   disabled = false,
 }) => {
   const colorClasses: Record<string, string> = {
@@ -27,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {Icon && <Icon size={15} />}
+
       <span>{text}</span>
     </button>
   );

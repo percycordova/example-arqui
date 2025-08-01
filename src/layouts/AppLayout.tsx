@@ -1,6 +1,6 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button";
-import { FaArrowLeft } from "react-icons/fa";
+
 
 const AppLayout = () => {
   const navigate = useNavigate();
@@ -18,12 +18,7 @@ const AppLayout = () => {
           Ficha Judicial
         </Link>
       </nav>
-      <Button
-        text="Anterior"
-        onClick={() => navigate(-1)}
-        color="blue"
-        icon={FaArrowLeft}
-      />
+
       <Outlet />
     </div>
   );

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { IoAddCircleOutline } from "react-icons/io5";
-import Button from "./Button";
+
 
 interface InputFieldProps {
   description: string;
@@ -22,7 +21,7 @@ const InputField = ({
   };
 
   return (
-    <div> 
+    <div>
       <div className="flex items-center gap-2 mt-4">
         <label className="font-medium w-35">{description}</label>
         <input

@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
+
 
 type TableCrudProps = {
   headers: string[];
@@ -52,7 +51,7 @@ const TableCrud = ({
                     onEdit?.(rowIndex);
                   }}
                 >
-                  <FaEdit />
+                
                 </button>
                 <button
                   className="text-red-600 px-2 cursor-pointer text-base"
@@ -61,7 +60,7 @@ const TableCrud = ({
                     onDelete?.(rowIndex);
                   }}
                 >
-                  <FaTrash />
+                
                 </button>
               </td>
             </tr>

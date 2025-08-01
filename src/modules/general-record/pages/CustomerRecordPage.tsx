@@ -2,7 +2,7 @@ import { useState } from "react";
 import TableCrud from "@/components/ui/TableCrud";
 import InputField from "@/components/ui/InputField";
 import Button from "@/components/ui/Button";
-import { IoAddCircleOutline } from "react-icons/io5";
+
 
 interface Cliente {
   nombre: string;
@@ -32,13 +32,13 @@ const CustomerRecordPage = () => {
       />
 
       <InputField description="Descripción:" onValueChange={setDescripcion} />
-      
+
       <div className="flex justify-end">
         <Button
           text="Agregar"
           onClick={() => alert("Agregado")}
           color="green"
-          icon={IoAddCircleOutline}
+
         />
       </div>
 
