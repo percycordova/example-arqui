@@ -1,7 +1,9 @@
 'use client';
+import { DemoForm } from '@/components/common/demoForm/DemoForm';
 import { AlertModal } from '@/components/common/modals/alertModal/AlertModal';
 import { ConfirmModal } from '@/components/common/modals/confirmModal/ConfirmModal';
 import { Button } from '@/components/ui/button/Button';
+import { Select } from '@/components/ui/select/Select';
 import { Typography } from '@/components/ui/typography/Typography';
 import { useModal } from '@/hooks/useModal';
 
@@ -15,6 +17,9 @@ const HomePage = () => {
 
   return (
     <div className="p-6">
+      <div className="max-w-[700px] mx-auto my-10">
+        <DemoForm />
+      </div>
       <div className="border p-4 mb-8">
         <Typography as="h2" variant="title">
           Botones
