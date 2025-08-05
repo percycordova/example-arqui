@@ -1,6 +1,7 @@
 import { Typography } from '@/components/ui';
 import { Navbar } from '../navbar/NavBar';
 import { NavItem } from '../navbar/types';
+import { useNavigate } from 'react-router-dom';
 
 const menuData: NavItem[] = [
   {
@@ -25,10 +26,16 @@ const menuData: NavItem[] = [
   },
 ];
 export const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="bg-primary shadow">
       <div className="flex items-center justify-between  text-white  max-w-7xl mx-auto">
-        <Typography variant="title" as="h1" className="text-white cursor-pointer">
+        <Typography
+          variant="title"
+          as="h1"
+          className="text-white cursor-pointer"
+          onClick={() => navigate('/')}
+        >
           SCOTIABANK
         </Typography>
         <Navbar items={menuData} />
