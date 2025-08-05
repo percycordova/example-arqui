@@ -16,7 +16,7 @@ const dataReference: Cliente[] = [
 ];
 
 const CustomerRecordPage = () => {
-  const [description, setDescripcion] = useState("");
+  const [ , setDescripcion] = useState("");
 
   return (
     <div className="px-6">

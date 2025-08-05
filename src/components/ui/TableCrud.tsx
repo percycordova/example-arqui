@@ -1,3 +1,5 @@
+import { TrashIcon } from "@heroicons/react/24/outline";
+import { PencilSquareIcon } from "@heroicons/react/24/outline";
 
 
 type TableCrudProps = {
@@ -51,7 +53,7 @@ const TableCrud = ({
                     onEdit?.(rowIndex);
                   }}
                 >
-                
+                <PencilSquareIcon className="w-5 h-5"/>
                 </button>
                 <button
                   className="text-red-600 px-2 cursor-pointer text-base"
@@ -60,7 +62,7 @@ const TableCrud = ({
                     onDelete?.(rowIndex);
                   }}
                 >
-                
+                 <TrashIcon className="w-5 h-5" />
                 </button>
               </td>
             </tr>

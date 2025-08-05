@@ -4,8 +4,7 @@ import AppLayout from '@/layouts/AppLayout'
 
 const HomePage = lazy(() => import('@/pages/home/HomePage'))
 const NotFoundPage = lazy(() => import('@pages/notFound/NotFoundPage'))
-const CustomerRecordPage = lazy(() => import('@/modules/general-record/pages/CustomerRecordPage'))
-const LegalRecordPage = lazy(() => import('@/modules/judicial-record/pages/LegalRecordPage'))
+const CustomerRecordPage = lazy(() => import('@/modules/portfolio-bce/general-parameters/general-file/pages/CustomerRecordPage'))
 
 
 export const AppRouter = () => {
@@ -15,7 +14,8 @@ export const AppRouter = () => {
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/customer" element={<CustomerRecordPage />} />
-          <Route path="/legal" element={<LegalRecordPage />} />
+          
+
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

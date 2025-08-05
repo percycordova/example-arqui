@@ -1,9 +1,7 @@
-import { Outlet, Link, useNavigate } from "react-router-dom";
-import Button from "../components/ui/Button";
-
+import { Outlet, Link } from "react-router-dom";
 
 const AppLayout = () => {
-  const navigate = useNavigate();
+
 
   return (
     <div>
