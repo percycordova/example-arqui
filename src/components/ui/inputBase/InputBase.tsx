@@ -7,7 +7,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   color?: 'blue' | 'red' | 'gray' | 'primary';
 }
 
-export const Input = ({ label, color = 'gray', className = '', disabled, ...rest }: InputProps) => {
+export const InputBase = ({ label, color = 'gray', className = '', disabled, ...rest }: InputProps) => {
   const base = 'w-full px-3 py-2 rounded border transition-all duration-200 focus:outline-none';
 
   const colorClasses = {
@@ -29,7 +29,7 @@ export const Input = ({ label, color = 'gray', className = '', disabled, ...rest
   );
 
   return (
-    <div className="flex flex-col gap-1 mb-4">
+    <div className="flex flex-col gap-1">
       {label && <label className="text-sm font-medium">{label}</label>}
       <input className={mergedClasses} disabled={disabled} {...rest} />
     </div>

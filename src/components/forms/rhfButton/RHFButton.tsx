@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button/Button';
+import { ButtonBase } from '@/components/ui';
 import { useFormContext } from 'react-hook-form';
 
 interface RHFButtonProps {
@@ -19,7 +19,7 @@ export const RHFButton = ({
   const isSubmitting = formState.isSubmitting;
 
   return (
-    <Button
+    <ButtonBase
       title={isSubmitting ? 'Cargando...' : title}
       type={type}
       color={color}

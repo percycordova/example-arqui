@@ -12,7 +12,7 @@ interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   color?: 'blue' | 'red' | 'gray' | 'primary';
 }
 
-export const Select = ({ options, color, className = '', disabled, ...rest }: SelectProps) => {
+export const SelectBase = ({ options, color, className = '', disabled, ...rest }: SelectProps) => {
   const base =
     'px-4 py-2 rounded shadow-sm transition-all duration-200 focus:outline-none cursor-pointer border border-gray-400';
 

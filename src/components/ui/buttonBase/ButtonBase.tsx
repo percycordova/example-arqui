@@ -6,7 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color?: 'blue' | 'red' | 'gray' | 'primary';
 }
 
-export const Button = ({
+export const ButtonBase = ({
   title,
   color,
   className = '',

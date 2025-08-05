@@ -7,7 +7,7 @@ interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   color?: 'blue' | 'red' | 'gray' | 'primary';
 }
 
-export const Checkbox = ({ label, color, className = '', disabled, ...rest }: CheckboxProps) => {
+export const CheckboxBase = ({ label, color, className = '', disabled, ...rest }: CheckboxProps) => {
   const base = 'h-5 w-5 rounded border transition-all duration-200';
 
   const colorClasses = {

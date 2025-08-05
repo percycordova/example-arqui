@@ -1,25 +1,20 @@
-import { Input } from '@/components/ui/input/Input';
+import { CheckboxBase } from '@/components/ui';
 import { useFormContext } from 'react-hook-form';
 
-interface RHFInputProps {
+interface RHFCheckboxProps {
   name: string;
   label?: string;
-  placeholder?: string;
-  type?: string;
   color?: 'blue' | 'red' | 'gray' | 'primary';
   className?: string;
-  disabled?: boolean;
 }
 
-export const RHFInput = ({
+export const RHFCheckbox = ({
   name,
   label,
-  placeholder,
-  type = 'text',
   color = 'gray',
   className = '',
-  disabled,
-}: RHFInputProps) => {
+  ...rest
+}: RHFCheckboxProps) => {
   const {
     register,
     formState: { errors },
@@ -29,14 +24,12 @@ export const RHFInput = ({
 
   return (
     <div className="mb-4">
-      <Input
+      <CheckboxBase
         {...register(name)}
         label={label}
-        placeholder={placeholder}
-        type={type}
         color={color}
         className={className}
-        disabled={disabled}
+        {...rest}
       />
       {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
     </div>

@@ -1,8 +1,6 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from 'react-router-dom';
 
 const AppLayout = () => {
-
-
   return (
     <div>
       <nav className="flex gap-4 p-4 bg-gray-100 shadow justify-end">

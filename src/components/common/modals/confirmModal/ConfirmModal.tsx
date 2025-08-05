@@ -1,7 +1,7 @@
 import React from 'react';
-import { ModalBase } from '@/components/common/modals/modalBase/ModalBase';
+import { ModalBase } from '@/components/ui/modalBase/ModalBase';
 import { Typography } from '@/components/ui/typography/Typography';
-import { Button } from '@/components/ui/button/Button';
+import { ButtonBase } from '@/components/ui/buttonBase/ButtonBase';
 
 interface ConfirmModalProps {
   isOpen: boolean;
@@ -37,8 +37,8 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
         <Typography className="text-gray-600">{description}</Typography>
 
         <div className="flex gap-4 mt-6 w-full justify-center">
-          <Button title="Cancelar" color="red" onClick={onCancel} />
-          <Button title="Aceptar" color="blue" onClick={onConfirm} />
+          <ButtonBase title="Cancelar" color="red" onClick={onCancel} />
+          <ButtonBase title="Aceptar" color="blue" onClick={onConfirm} />
         </div>
       </div>
     </ModalBase>

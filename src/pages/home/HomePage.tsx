@@ -2,8 +2,8 @@
 import { DemoForm } from '@/components/common/demoForm/DemoForm';
 import { AlertModal } from '@/components/common/modals/alertModal/AlertModal';
 import { ConfirmModal } from '@/components/common/modals/confirmModal/ConfirmModal';
-import { Button } from '@/components/ui/button/Button';
-import { Select } from '@/components/ui/select/Select';
+import { ButtonBase } from '@/components/ui/buttonBase/ButtonBase';
+import { SelectBase } from '@/components/ui/selectBase/SelectBase';
 import { Typography } from '@/components/ui/typography/Typography';
 import { useModal } from '@/hooks/useModal';
 
@@ -25,14 +25,14 @@ const HomePage = () => {
           Botones
         </Typography>
         <div className="p-8 flex gap-8">
-          <Button
+          <ButtonBase
             title="Modal de confirmación"
             color="blue"
             disabled={false}
             onClick={openConfirm}
           />
-          <Button title="Modal de alerta" color="red" disabled={false} onClick={openModalAlert} />
-          <Button title="Desahabilitado" color="gray" disabled={true} />
+          <ButtonBase title="Modal de alerta" color="red" disabled={false} onClick={openModalAlert} />
+          <ButtonBase title="Desahabilitado" color="gray" disabled={true} />
         </div>
       </div>
 

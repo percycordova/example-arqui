@@ -1,7 +1,7 @@
 import React from 'react';
-import { ModalBase } from '@/components/common/modals/modalBase/ModalBase';
+import { ModalBase } from '@/components/ui/modalBase/ModalBase';
 import { Typography } from '@/components/ui/typography/Typography';
-import { Button } from '@/components/ui/button/Button';
+import { ButtonBase } from '@/components/ui/buttonBase/ButtonBase';
 import {
   ExclamationTriangleIcon,
   CheckCircleIcon,
@@ -61,7 +61,7 @@ export const AlertModal: React.FC<AlertModalProps> = ({
         <Typography className="text-gray-600">{description}</Typography>
 
         <div className="mt-6 w-full">
-          <Button title={buttonText} color="blue" onClick={onClose} />
+          <ButtonBase title={buttonText} color="blue" onClick={onClose} />
         </div>
       </div>
     </ModalBase>

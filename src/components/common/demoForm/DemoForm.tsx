@@ -1,11 +1,11 @@
 import { FormProviderWrapper } from '@/components/ui/formProviderWrapper/FormProviderWrapper';
 import * as yup from 'yup';
-import { RHFInput } from '../rhf/rhfInput/RHFInput';
-import { RHFRadioGroup } from '../rhf/rhfRadioGroup/RHFRadioGroup';
-import { RHFCheckbox } from '../rhf/rhfCheckbox/RHFChecbox';
-import { RHFButton } from '../rhf/rhfButton/RHFButton';
-import { RHFSelect } from '../rhf/rhfSelect/RHFSelect';
-import { Button } from '@/components/ui/button/Button';
+import { RHFInput } from '../../forms/rhfInput/RHFInput';
+import { RHFRadioGroup } from '../../forms/rhfRadioGroup/RHFRadioGroup';
+import { RHFCheckbox } from '../../forms/rhfCheckbox/RHFChecbox';
+import { RHFButton } from '../../forms/rhfButton/RHFButton';
+import { RHFSelect } from '../../forms/rhfSelect/RHFSelect';
+import { ButtonBase } from '@/components/ui/buttonBase/ButtonBase';
 
 const regionesDelPeru = [
   'Amazonas',
@@ -104,7 +104,7 @@ export const DemoForm = () => {
 
           <div className="flex gap-4 mt-6">
             <RHFButton title="Enviar" color="primary" />
-            <Button title="Resetear" color="gray" onClick={() => handleReset(reset)} />
+            <ButtonBase title="Resetear" color="gray" onClick={() => handleReset(reset)} />
           </div>
         </>
       )}
