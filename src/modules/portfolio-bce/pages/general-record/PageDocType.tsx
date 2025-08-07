@@ -1,4 +1,5 @@
 'use client';
+
 import * as yup from 'yup';
 import { useState } from 'react';
 import { ButtonBase, GenericTable, Typography } from '@/components/ui';
@@ -18,6 +19,11 @@ interface Estatus {
 
 const schema = yup.object({
   descripcion: yup.string().required('La descripción es obligatoria'),
+  codigo: yup.string().when('$isEdit', {
+    is: true,
+    then: schema => schema.required('El código es obligatorio'),
+    otherwise: schema => schema.notRequired(),
+  }),
 });
 
 type FormValues = yup.InferType<typeof schema>;
@@ -29,7 +35,7 @@ const initialData: Estatus[] = [
   { id: 4, codigo: '4', descripcion: 'Configuración básica' },
 ];
 
- const PageStatus = () => {
+export const PageDocType = () => {
   const { closeModal, isOpen, openModal } = useModal();
 
   const [estatusList, setEstatusList] = useState<Estatus[]>(initialData);
@@ -43,7 +49,9 @@ const initialData: Estatus[] = [
       // Editar
       setEstatusList(prev =>
         prev.map(item =>
-          item.id === editItem.id ? { ...item, descripcion: data.descripcion } : item
+          item.id === editItem.id
+            ? { ...item, descripcion: data.descripcion, codigo: data.codigo! }
+            : item
         )
       );
     } else {
@@ -85,12 +93,13 @@ const initialData: Estatus[] = [
 
   const defaultValues: FormValues = {
     descripcion: editItem?.descripcion ?? '',
+    codigo: editItem?.codigo ?? '',
   };
 
   return (
     <div className="mt-10">
       <Typography className="text-primary text-center mb-8" as="h2" variant="subtitle">
-        FICHA GENERAL - ESTATUS
+        FICHA GENERAL - TIPO DOCUMENTO
       </Typography>
 
       <div className="max-w-5xl mx-auto">
@@ -160,11 +169,16 @@ const initialData: Estatus[] = [
           onSubmit={handleSubmit}
         >
           {() => (
-            <div className="flex flex-col gap-4 items-center p-4">
+            <div className="flex flex-col gap-4 items-center p-4 ">
               <Typography variant="subtitle">
                 {editItem ? 'Editar Estatus' : 'Agregar Estatus'}
               </Typography>
+
+              {/* Mostrar campo CÓDIGO solo al editar */}
+              {editItem && <RHFInput name="codigo" label="Código" className="w-xl" />}
+
               <RHFInput name="descripcion" label="Descripción" className="w-xl" />
+
               <div className="text-center">
                 <RHFButton title="Guardar" color="blue" />
               </div>
@@ -186,4 +200,4 @@ const initialData: Estatus[] = [
   );
 };
 
-export const Component = PageStatus;
+export const Component = PageDocType;

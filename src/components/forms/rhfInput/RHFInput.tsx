@@ -1,4 +1,3 @@
-
 import { InputBase } from '@/components/ui';
 import { useFormContext } from 'react-hook-form';
 
@@ -26,7 +25,9 @@ export const RHFInput = ({
     formState: { errors },
   } = useFormContext();
 
-  const error = errors[name]?.message as string | undefined;
+  const fieldError = errors[name as keyof typeof errors];
+  const error =
+    typeof fieldError === 'object' && fieldError ? (fieldError.message as string) : undefined;
 
   return (
     <div className="mb-4">

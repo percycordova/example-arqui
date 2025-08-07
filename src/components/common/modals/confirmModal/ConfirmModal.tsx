@@ -24,11 +24,11 @@ export const ConfirmModal: React.FC<ConfirmModalProps> = ({
     <ModalBase
       isOpen={isOpen}
       onClose={onCancel}
-      className="text-center max-w-md"
+      className="text-center max-w-lg"
       disableBackdropClick={true}
       showXButton={true}
     >
-      <div className="flex flex-col items-center gap-4 px-4">
+      <div className="flex flex-col items-center gap-4 p-8">
         {icon && <div className="text-4xl text-red-500">{icon}</div>}
         <Typography as="h2" variant="title">
           {title}

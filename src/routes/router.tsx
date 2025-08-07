@@ -21,6 +21,10 @@ export const router = createBrowserRouter([
         path: '/bce/ficha-general/estatus',
         lazy: () => import('@/modules/portfolio-bce/pages/general-record/PageStatus'),
       },
+      {
+        path: '/bce/ficha-general/tipo-documento',
+        lazy: () => import('@/modules/portfolio-bce/pages/general-record/PageDocType'),
+      },
     ],
   },
 ]);

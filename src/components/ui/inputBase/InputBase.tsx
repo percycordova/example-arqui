@@ -13,7 +13,7 @@ export const InputBase = ({ label, color = 'gray', className = '', disabled, ...
   const colorClasses = {
     blue: 'border-blue-600 focus:ring-2 focus:ring-blue-300',
     red: 'border-red-600 focus:ring-2 focus:ring-red-300',
-    gray: 'border-gray-400 focus:ring-2 focus:ring-gray-200',
+    gray: 'border-gray-400 focus:ring-2 focus:ring-gray-200 focus:border-gray-400',
     primary: 'border-primary focus:ring-2 focus:ring-primary/50',
   };
 
@@ -30,7 +30,7 @@ export const InputBase = ({ label, color = 'gray', className = '', disabled, ...
 
   return (
     <div className="flex flex-col gap-1">
-      {label && <label className="text-sm font-medium">{label}</label>}
+      {label && <label className="text-sm font-medium text-[#333]">{label}</label>}
       <input className={mergedClasses} disabled={disabled} {...rest} />
     </div>
   );
