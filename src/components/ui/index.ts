@@ -6,3 +6,4 @@ export { ModalBase } from './modalBase/ModalBase';
 export { RadioGroup } from './radioGroup/RadioGroup';
 export { SelectBase } from './selectBase/SelectBase';
 export { Typography } from './typography/Typography';
+export { GenericTable } from './genericTable/GenericTable';
