@@ -5,10 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const menuData: NavItem[] = [
   {
-    title: 'Cartera en BCE',
-    subItems: [{ label: 'Parámetros Generales', path: '/bce/parametros' }],
-  },
-  {
     title: 'Ficha Judicial',
     subItems: [
       { label: 'Plaza / Tipo', path: '/ficha/plaza' },

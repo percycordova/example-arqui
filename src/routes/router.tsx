@@ -11,20 +11,7 @@ export const router = createBrowserRouter([
         path: '*',
         lazy: () => import('@/pages/notFound/NotFoundPage'),
       },
-      /* Rutas para el módulo BCE */
-      {
-        path: '/bce/parametros',
-        lazy: () => import('@/modules/portfolio-bce/pages/home/BCEHomePage'),
-      },
-      /* Rutas para el módulo BCE/FICHA-GENERAL */
-      {
-        path: '/bce/ficha-general/estatus',
-        lazy: () => import('@/modules/portfolio-bce/pages/general-record/PageStatus'),
-      },
-      {
-        path: '/bce/ficha-general/tipo-documento',
-        lazy: () => import('@/modules/portfolio-bce/pages/general-record/PageDocType'),
-      },
+
       /* Rutas para el módulo FICHA RESUMEN */
       {
         path: '/ficha/otros',
