@@ -20,7 +20,7 @@ export const ButtonBase = ({
   ...rest
 }: ButtonBaseProps) => {
   const base =
-    'inline-flex cursor-pointer items-center justify-center min-w-[200px] px-4 py-3 rounded font-medium shadow-sm text-sm transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-1';
+    'inline-flex cursor-pointer items-center justify-center w-[200px] px-4 py-3 rounded font-medium shadow-sm text-sm transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-1';
 
   const colorClasses = {
     blue: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-200',

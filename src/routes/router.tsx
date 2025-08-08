@@ -25,6 +25,15 @@ export const router = createBrowserRouter([
         path: '/bce/ficha-general/tipo-documento',
         lazy: () => import('@/modules/portfolio-bce/pages/general-record/PageDocType'),
       },
+      /* Rutas para el módulo FICHA RESUMEN */
+      {
+        path: '/ficha/otros',
+        lazy: () => import('@/modules/judicial-record/pages/PageSummary'),
+      },
+      {
+        path: '/ficha/otros/2',
+        lazy: () => import('@/modules/judicial-record/pages/PageSumary2'),
+      },
     ],
   },
 ]);

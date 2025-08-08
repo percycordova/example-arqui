@@ -90,7 +90,7 @@ const initialData: Estatus[] = [
   return (
     <div className="mt-10">
       <Typography className="text-primary text-center mb-8" as="h2" variant="subtitle">
-        FICHA GENERAL - ESTATUS
+        FICHA GENERAL - ESTATUS yuliana care poto
       </Typography>
 
       <div className="max-w-5xl mx-auto">
