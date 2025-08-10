@@ -1,7 +1,5 @@
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils/cn';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-
 interface ButtonBaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
   children?: ReactNode;
@@ -31,14 +29,12 @@ export const ButtonBase = ({
 
   const disabledClasses = 'opacity-50 cursor-not-allowed hover:bg-inherit border border-gray-200';
 
-  const mergedClasses = twMerge(
-    clsx(
-      base,
-      colorClasses[color],
-      disabled && disabledClasses,
-      loading && 'cursor-wait',
-      className
-    )
+  const mergedClasses = cn(
+    base,
+    colorClasses[color],
+    disabled && disabledClasses,
+    loading && 'cursor-wait',
+    className
   );
 
   return (

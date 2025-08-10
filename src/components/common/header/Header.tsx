@@ -1,13 +1,14 @@
-import { Typography } from '@/components/ui';
+import { BackButton, Typography } from '@/components/ui';
 import { NavItem } from '../navbar/types';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../navbar/NavBar';
+import { HomeButton } from '@/components/ui/homeButton/HomeButton';
 
 const menuData: NavItem[] = [
   {
     title: 'Ficha Judicial',
     subItems: [
-      { label: 'Plaza / Tipo', path: '/ficha/plaza' },
+      { label: 'Plaza / Tipo', path: '/ficha-judicial/plaza-tipo' },
       { label: 'Supervisor', path: '/ficha/supervisor' },
       {
         label: 'Estudio Externo',
@@ -27,21 +28,28 @@ const menuData: NavItem[] = [
     subItems: [{ label: 'Generador de Reportes', path: '/concursal/reportes' }],
   },
 ];
+
 export const Header = () => {
   const navigate = useNavigate();
   return (
-    <header className="bg-primary shadow">
-      <div className="flex items-center justify-between  text-white  max-w-7xl mx-auto">
-        <Typography
-          variant="title"
-          as="h1"
-          className="text-white cursor-pointer"
-          onClick={() => navigate('/')}
-        >
-          SCOTIABANK
-        </Typography>
-        <Navbar items={menuData} />
+    <>
+      <header className="bg-primary shadow">
+        <div className="flex items-center justify-between  text-white  max-w-7xl mx-auto">
+          <Typography
+            variant="title"
+            as="h1"
+            className="text-white cursor-pointer"
+            onClick={() => navigate('/')}
+          >
+            SCOTIABANK
+          </Typography>
+          <Navbar items={menuData} />
+        </div>
+      </header>
+      <div className="flex items-center justify-between mt-4 max-w-7xl mx-auto">
+        <BackButton />
+        <HomeButton />
       </div>
-    </header>
+    </>
   );
 };

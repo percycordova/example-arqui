@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils/cn';
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,7 +9,7 @@ interface ModalProps {
   showXButton?: boolean;
   className?: string;
   zIndexLevel?: number;
-  disableBackdropClick?: boolean; // 👈 nueva prop
+  disableBackdropClick?: boolean;
 }
 
 export const ModalBase: React.FC<ModalProps> = ({
@@ -20,25 +19,10 @@ export const ModalBase: React.FC<ModalProps> = ({
   showXButton = true,
   className,
   zIndexLevel = 60,
-  disableBackdropClick = false, // 👈 valor por defecto
+  disableBackdropClick = false,
 }) => {
   const [mounted, setMounted] = useState(false);
   const [modalRoot, setModalRoot] = useState<HTMLElement | null>(null);
-
-  const backdropStyle = {
-    zIndex: zIndexLevel,
-  };
-
-  const modalWrapperStyle = {
-    zIndex: zIndexLevel + 10,
-  };
-
-  const mergedClassName = twMerge(
-    clsx(
-      'bg-white shadow-lg max-w-3xl w-full py-6 relative pointer-events-auto mx-5',
-      className
-    )
-  );
 
   useEffect(() => {
     setMounted(true);
@@ -47,41 +31,41 @@ export const ModalBase: React.FC<ModalProps> = ({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
+    if (isOpen) document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
   if (!mounted || !modalRoot || !isOpen) return null;
+
+  const backdropStyle = { zIndex: zIndexLevel };
+  const modalWrapperStyle = { zIndex: zIndexLevel + 10 };
+
+  const mergedClassName = cn(
+    'bg-white shadow-lg max-w-3xl w-full py-6 relative pointer-events-auto mx-5 rounded',
+    className
+  );
 
   return createPortal(
     <>
       <div
         className="fixed inset-0 bg-black/50 transition-opacity"
         style={backdropStyle}
-        onClick={!disableBackdropClick ? onClose : undefined} // 👈 click condicional
+        onClick={!disableBackdropClick ? onClose : undefined}
       />
       <div
         className="fixed inset-0 flex items-center justify-center py-4 pointer-events-none"
         style={modalWrapperStyle}
+        role="dialog"
+        aria-modal="true"
       >
-        <div
-          className={mergedClassName}
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className={mergedClassName} onClick={e => e.stopPropagation()}>
           {showXButton && (
             <button
               className="absolute h-8 w-8 bg-primary text-white flex items-center justify-center top-0 right-0 text-xl cursor-pointer"
               onClick={onClose}
+              aria-label="Cerrar modal"
             >
               ×
             </button>

@@ -1,13 +1,18 @@
 import React from 'react';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils/cn';
 
 interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   color?: 'blue' | 'red' | 'gray' | 'primary';
 }
 
-export const CheckboxBase = ({ label, color, className = '', disabled, ...rest }: CheckboxProps) => {
+export const CheckboxBase = ({
+  label,
+  color,
+  className = '',
+  disabled,
+  ...rest
+}: CheckboxProps) => {
   const base = 'h-5 w-5 rounded border transition-all duration-200';
 
   const colorClasses = {
@@ -19,8 +24,11 @@ export const CheckboxBase = ({ label, color, className = '', disabled, ...rest }
 
   const disabledClasses = 'opacity-50 cursor-not-allowed';
 
-  const mergedClasses = twMerge(
-    clsx(base, color ? colorClasses[color] : null, disabled ? disabledClasses : '', className)
+  const mergedClasses = cn(
+    base,
+    color && colorClasses[color],
+    disabled && disabledClasses,
+    className
   );
 
   return (

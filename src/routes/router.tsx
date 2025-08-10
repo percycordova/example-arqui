@@ -21,6 +21,13 @@ export const router = createBrowserRouter([
         path: '/ficha/otros/2',
         lazy: () => import('@/modules/judicial-record/pages/PageSumary2'),
       },
+
+      /* Rutas para la cartera judicial*/
+
+      {
+        path: '/ficha-judicial/plaza-tipo',
+        lazy: () => import('@/modules/judicial-record/pages/type-place/PageTypePlace'),
+      },
     ],
   },
 ]);

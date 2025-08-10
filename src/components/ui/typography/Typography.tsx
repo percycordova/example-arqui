@@ -1,7 +1,6 @@
 import type { JSX } from 'react';
 import React from 'react';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils/cn';
 
 type TypographyVariants = 'title' | 'subtitle' | 'base' | 'caption';
 
@@ -22,7 +21,6 @@ export const Typography = <Tag extends keyof JSX.IntrinsicElements = 'p'>({
   const Component = (as || 'p') as keyof JSX.IntrinsicElements;
 
   const base = 'text-[#333333]';
-
   const variants: Record<TypographyVariants, string> = {
     title: 'text-2xl font-bold',
     subtitle: 'text-xl font-semibold',
@@ -30,7 +28,7 @@ export const Typography = <Tag extends keyof JSX.IntrinsicElements = 'p'>({
     caption: 'text-sm',
   };
 
-  const mergedClasses = twMerge(clsx(base, variants[variant], className));
+  const mergedClasses = cn(base, variants[variant], className);
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
