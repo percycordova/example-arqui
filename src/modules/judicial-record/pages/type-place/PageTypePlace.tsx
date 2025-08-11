@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { ButtonBase } from '@/components/ui/buttonBase/ButtonBase';
 import { ButtonIcon, InputBase, Title } from '@/components/ui';
 import { TableTypePlace } from '../../components/tables/tableTypePlace/TableTypePlace';
 import { DocumentArrowDownIcon, PrinterIcon } from '@heroicons/react/24/outline';
