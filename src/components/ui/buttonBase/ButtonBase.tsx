@@ -27,7 +27,7 @@ export const ButtonBase = ({
     primary: 'bg-primary text-white hover:bg-primary/80 focus:ring-primary/30',
   };
 
-  const disabledClasses = 'opacity-50 cursor-not-allowed hover:bg-inherit border border-gray-200';
+  const disabledClasses = 'opacity-70 cursor-not-allowed  border border-gray-200 ';
 
   const mergedClasses = cn(
     base,

@@ -1,4 +1,5 @@
 export { ButtonBase } from './buttonBase/ButtonBase';
+export { ButtonIcon } from './buttonBase/ButtonIcon';
 export { CheckboxBase } from './checkboxBase/CheckboxBase';
 export { FormProviderWrapper } from './formProviderWrapper/FormProviderWrapper';
 export { InputBase } from './inputBase/InputBase';

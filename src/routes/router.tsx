@@ -33,6 +33,10 @@ export const router = createBrowserRouter([
         lazy: () =>
           import('@/modules/judicial-record/pages/type-place/internal/PageInternalTypePlace'),
       },
+      {
+        path: 'ficha-judicial/recepcion-archivos',
+        lazy: () => import('@/modules/judicial-record/pages/file-reception/PageFileReception'),
+      },
     ],
   },
 ]);

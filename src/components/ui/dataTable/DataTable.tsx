@@ -44,7 +44,7 @@ export function DataTable<T>({
           {table.getHeaderGroups().map(hg => (
             <tr
               key={hg.id}
-              className="[&>th]:border-b [&>th]:px-3 [&>th]:py-2 [&>th]:text-left [&>th]:text-xs [&>th]:font-medium [&>th]:text-neutral-500 dark:[&>th]:border-neutral-800"
+              className="[&>th]:border-b [&>th]:px-3 [&>th]:py-4 [&>th]:text-left [&>th]:text-xs [&>th]:font-semibold [&>th]:text-neutral-500 dark:[&>th]:border-neutral-800"
             >
               {hg.headers.map(h => {
                 const meta = (h.column.columnDef as any)?.meta as ColumnMeta | undefined;

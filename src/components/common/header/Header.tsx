@@ -14,7 +14,7 @@ const menuData: NavItem[] = [
         label: 'Estudio Externo',
         subItems: [
           { label: 'Estudio Externo', path: '/ficha-judicial/estudio-externo' },
-          { label: 'Recepción Archivos', path: '/ficha-judicial/recepcion' },
+          { label: 'Recepción Archivos', path: '/ficha-judicial/recepcion-archivos' },
         ],
       },
       { label: 'Clientes', path: '/ficha/clientes' },

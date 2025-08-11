@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { ButtonBase } from '@/components/ui/buttonBase/ButtonBase';
-import { InputBase, Title } from '@/components/ui';
+import { ButtonIcon, InputBase, Title } from '@/components/ui';
 import { TableTypePlace } from '../../components/tables/tableTypePlace/TableTypePlace';
+import { DocumentArrowDownIcon, PrinterIcon } from '@heroicons/react/24/outline';
 
 const BranchTypePage = () => {
   const [exchangeRate, setExchangeRate] = useState('3.59');
@@ -27,8 +28,18 @@ const BranchTypePage = () => {
           </div>
 
           <div className="flex items-center gap-2 ">
-            <ButtonBase title="Export Excel" onClick={() => console.log('Export to Excel')} />
-            <ButtonBase title="Print" onClick={() => console.log('Print')} />
+            <ButtonIcon
+              title="Exportar Excel"
+              icon={<DocumentArrowDownIcon className="w-5 h-5" />}
+              iconPosition="left"
+              className='bg-green-600 hover:bg-green-700 text-white'
+            />
+            <ButtonIcon
+              title="Imprimir"
+              color="blue"
+              icon={<PrinterIcon className="w-5 h-5" />}
+              iconPosition="left"
+            />
           </div>
         </div>
 
