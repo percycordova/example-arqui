@@ -33,7 +33,7 @@ export const Header = () => {
   const navigate = useNavigate();
   return (
     <>
-      <header className="bg-primary shadow">
+      <nav className="bg-primary shadow sticky top-0 z-50">
         <div className="flex items-center justify-between  text-white  max-w-7xl mx-auto">
           <Typography
             variant="title"
@@ -45,8 +45,8 @@ export const Header = () => {
           </Typography>
           <Navbar items={menuData} />
         </div>
-      </header>
-      <div className="flex items-center justify-between mt-4 max-w-7xl mx-auto">
+      </nav>
+      <div className="flex items-center justify-between mt-4 max-w-7xl mx-auto ">
         <BackButton />
         <HomeButton />
       </div>

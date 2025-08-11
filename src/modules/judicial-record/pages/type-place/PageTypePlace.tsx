@@ -7,7 +7,7 @@ const BranchTypePage = () => {
   const [exchangeRate, setExchangeRate] = useState('3.59');
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white mb-10">
       <div className="mx-auto max-w-7xl px-4 py-6">
         <Title text="PLAZA / TIPO" />
 

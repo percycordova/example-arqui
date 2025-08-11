@@ -1,5 +1,6 @@
 import { DataTable } from '@/components/ui';
 import { AnyColumnDef } from '@/types/AnyColumnDef';
+import { useNavigate } from 'react-router-dom';
 
 type RowData = {
   plaza: string;
@@ -23,7 +24,18 @@ const columns: AnyColumnDef<RowData>[] = [
   {
     accessorKey: 'plaza',
     header: 'Plaza',
-    cell: ({ getValue }) => <span>{getValue<string>()}</span>,
+    cell: ({ getValue }) => {
+      const navigate = useNavigate();
+      const plaza = getValue<string>().trim().toLowerCase()
+      return (
+        <button
+          onClick={() => navigate(`/ficha-judicial/plaza-tipo/${encodeURIComponent(plaza)}`)}
+          className="text-blue-600 cursor-pointer hover:underline "
+        >
+          {plaza}
+        </button>
+      );
+    },
   },
   {
     accessorKey: 'noClientes',

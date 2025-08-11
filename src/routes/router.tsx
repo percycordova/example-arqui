@@ -28,6 +28,11 @@ export const router = createBrowserRouter([
         path: '/ficha-judicial/plaza-tipo',
         lazy: () => import('@/modules/judicial-record/pages/type-place/PageTypePlace'),
       },
+      {
+        path: '/ficha-judicial/plaza-tipo/:plaza',
+        lazy: () =>
+          import('@/modules/judicial-record/pages/type-place/internal/PageInternalTypePlace'),
+      },
     ],
   },
 ]);
