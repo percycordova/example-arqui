@@ -37,6 +37,18 @@ export const router = createBrowserRouter([
         path: 'ficha-judicial/recepcion-archivos',
         lazy: () => import('@/modules/judicial-record/pages/file-reception/PageFileReception'),
       },
+
+      {
+        path: 'ficha-judicial/reasignacion',
+        lazy: () => import('@/modules/judicial-record/pages/process-reassignment/SearchProcessReasignment'),
+      },
+
+      {
+        path: 'ficha-judicial/reasignacion/reasignar-cliente',
+        lazy: () => import('@/modules/judicial-record/pages/process-reassignment/ReasignmentClient'),
+      },
+
+      
     ],
   },
 ]);

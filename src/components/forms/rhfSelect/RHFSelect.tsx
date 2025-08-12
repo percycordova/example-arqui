@@ -30,14 +30,14 @@ export const RHFSelect = ({
   const error = errors[name]?.message as string | undefined;
 
   return (
-    <div className="mb-4">
-      {label && <label className="block mb-1 font-medium">{label}</label>}
+    <div className="gap-5 flex items-center">
+      {label && <label className="w-[250px] block mb-1 font-medium">{label}</label>}
 
       <SelectBase
         {...register(name)}
         options={options}
         color={color}
-        className={className}
+        className={`w-full ${className}`}
         {...rest}
       />
 

@@ -13,7 +13,7 @@ export const InputBase = ({
   disabled,
   ...rest
 }: InputProps) => {
-  const base = 'w-full px-3 py-2 rounded border transition-all duration-200 focus:outline-none';
+  const base = 'w-[400px] px-3 py-2 rounded border transition-all duration-200 focus:outline-none';
 
   const colorClasses = {
     blue: 'border-blue-600 focus:ring-2 focus:ring-blue-300',
@@ -32,8 +32,8 @@ export const InputBase = ({
   );
 
   return (
-    <div className="flex flex-col gap-1">
-      {label && <label className="text-sm font-medium text-[#333]">{label}</label>}
+    <div className="flex flex-row items-center gap-5">
+      {label && <label className="text-sm w-[80px] font-medium text-[#333]">{label}</label>}
       <input className={mergedClasses} disabled={disabled} {...rest} />
     </div>
   );
