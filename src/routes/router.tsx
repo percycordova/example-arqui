@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
         path: '/cartera-judicial/recepcion-archivos',
         lazy: () => import('@/modules/judicial-record/pages/file-reception/PageFileReception'),
       },
-      
+
       /* Clientes */
       /* Calificación y Asignación de Procesos */
 
@@ -49,6 +49,10 @@ export const router = createBrowserRouter([
       },
 
       /* Otros - Reporte de Pase a Judicial */
+      {
+        path: '/cartera-judicial/otros/reporte-pase-judicial',
+        lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageReportTransferJudicial'),
+      }
       /* Otros - Reasignación de Abogados Supervisores */
 
 

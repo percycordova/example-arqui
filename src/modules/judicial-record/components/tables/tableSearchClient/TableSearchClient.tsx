@@ -6,6 +6,7 @@ export type LegalCaseRow = {
   client: string; // SCOMBRO
   integrativeAccount: number; // 38927901
   totalDebt: number; // -300
+  clientLink: string; // scombro
 };
 
 // Columnas con tu look & feel
@@ -38,17 +39,20 @@ const columns: AnyColumnDef<LegalCaseRow>[] = [
 
 // --------- fake data (3 filas) ----------
 const fakeData: LegalCaseRow[] = [
-  {
+  { 
+    clientLink: 'compañia-minera',
     client: 'COMPAÑÍA MINERA XYZ',
     integrativeAccount: 38927901,
     totalDebt: -300,
   },
   {
+    clientLink: 'industrias-peru',
     client: 'INDUSTRIAS DEL PERU S.A.',
     integrativeAccount: 38927902,
     totalDebt: 250,
   },
   {
+    clientLink: 'servicios-logisticos',
     client: 'SERVICIOS LOGÍSTICOS DEL NORTE',
     integrativeAccount: 38927903,
     totalDebt: -150,

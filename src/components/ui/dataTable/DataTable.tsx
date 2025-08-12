@@ -44,22 +44,11 @@ export function DataTable<T>({
           {table.getHeaderGroups().map(hg => (
             <tr
               key={hg.id}
-              className="[&>th]:border-b [&>th]:px-3 [&>th]:py-4 [&>th]:text-left [&>th]:text-xs [&>th]:font-semibold [&>th]:text-neutral-500 dark:[&>th]:border-neutral-800"
+              className="[&>th]:border-b [&>th]:px-3 [&>th]:py-4 [&>th]:text-center [&>th]:text-xs [&>th]:font-semibold [&>th]:text-neutral-500 dark:[&>th]:border-neutral-800"
             >
-              {hg.headers.map(h => {
-                const meta = (h.column.columnDef as any)?.meta as ColumnMeta | undefined;
-                const align =
-                  meta?.align === 'right'
-                    ? 'text-right'
-                    : meta?.align === 'center'
-                      ? 'text-center'
-                      : 'text-left';
-                return (
-                  <th key={h.id} className={cn(align, meta?.headerClassName)}>
-                    {flexRender(h.column.columnDef.header, h.getContext())}
-                  </th>
-                );
-              })}
+              {hg.headers.map(h => (
+                <th key={h.id}>{flexRender(h.column.columnDef.header, h.getContext())}</th>
+              ))}
             </tr>
           ))}
         </thead>
@@ -85,23 +74,11 @@ export function DataTable<T>({
                   striped && idx % 2 === 1 && 'bg-neutral-50/60 dark:bg-neutral-900/30'
                 )}
               >
-                {row.getVisibleCells().map(cell => {
-                  const meta = (cell.column.columnDef as any)?.meta as ColumnMeta | undefined;
-                  const align =
-                    meta?.align === 'right'
-                      ? 'text-right'
-                      : meta?.align === 'center'
-                        ? 'text-center'
-                        : 'text-left';
-                  return (
-                    <td
-                      key={cell.id}
-                      className={cn('px-3 py-4 align-middle', align, meta?.cellClassName)}
-                    >
-                      {flexRender(cell.column.columnDef.cell!, cell.getContext())}
-                    </td>
-                  );
-                })}
+                {row.getVisibleCells().map(cell => (
+                  <td key={cell.id} className="px-3 py-4 align-middle text-center">
+                    {flexRender(cell.column.columnDef.cell!, cell.getContext())}
+                  </td>
+                ))}
               </tr>
             ))
           )}
