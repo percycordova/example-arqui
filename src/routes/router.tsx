@@ -12,41 +12,46 @@ export const router = createBrowserRouter([
         lazy: () => import('@/pages/notFound/NotFoundPage'),
       },
 
-      /* Rutas para el módulo FICHA RESUMEN */
-      {
-        path: '/ficha/otros',
-        lazy: () => import('@/modules/judicial-record/pages/PageSummary'),
-      },
-      {
-        path: '/ficha/otros/2',
-        lazy: () => import('@/modules/judicial-record/pages/PageSumary2'),
-      },
-
       /* Rutas para la cartera judicial*/
 
+      /* Plaza/Tipo */
       {
-        path: '/ficha-judicial/plaza-tipo',
+        path: '/cartera-judicial/plaza-tipo',
         lazy: () => import('@/modules/judicial-record/pages/type-place/PageTypePlace'),
       },
       {
-        path: '/ficha-judicial/plaza-tipo/:plaza',
+        path: '/cartera-judicial/plaza-tipo:plaza',
         lazy: () =>
           import('@/modules/judicial-record/pages/type-place/internal/PageInternalTypePlace'),
       },
+
+      /* Supervisor */
+      /* Estudio Externo - Estudio Externo */
+      
+      /* Estudio Externo - Recepción de Archivos */
       {
-        path: 'ficha-judicial/recepcion-archivos',
+        path: '/cartera-judicial/recepcion-archivos',
         lazy: () => import('@/modules/judicial-record/pages/file-reception/PageFileReception'),
       },
+      
+      /* Clientes */
+      /* Calificación y Asignación de Procesos */
 
+      /* Reasignación de Procesos */
       {
-        path: 'ficha-judicial/reasignacion',
+        path: '/cartera-judicial/reasignacion-procesos',
         lazy: () => import('@/modules/judicial-record/pages/process-reassignment/SearchProcessReasignment'),
       },
 
       {
-        path: 'ficha-judicial/reasignacion/reasignar-cliente',
+        path: '/cartera-judicial/reasignacion-procesos/reasignar-cliente',
         lazy: () => import('@/modules/judicial-record/pages/process-reassignment/ReasignmentClient'),
       },
+
+      /* Otros - Reporte de Pase a Judicial */
+      /* Otros - Reasignación de Abogados Supervisores */
+
+
 
       
     ],

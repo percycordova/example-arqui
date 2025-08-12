@@ -6,26 +6,38 @@ import { HomeButton } from '@/components/ui/homeButton/HomeButton';
 
 const menuData: NavItem[] = [
   {
-    title: 'Ficha Judicial',
+    title: 'Cartera en Judicial',
     subItems: [
-      { label: 'Plaza / Tipo', path: '/ficha-judicial/plaza-tipo' },
-      { label: 'Supervisor', path: '/ficha/supervisor' },
+      { label: 'Plaza / Tipo', path: '/cartera-judicial/plaza-tipo' },
+      { label: 'Supervisor', path: '/cartera-judicial/supervisor' },
       {
         label: 'Estudio Externo',
         subItems: [
-          { label: 'Estudio Externo', path: '/ficha-judicial/estudio-externo' },
-          { label: 'Recepción Archivos', path: '/ficha-judicial/recepcion-archivos' },
+          { label: 'Estudio Externo', path: '/cartera-judicial/estudio-externo/estudio-externo' },
+          { label: 'Recepción Archivos', path: '/cartera-judicial/estudio-externo/recepcion-archivos' },
         ],
       },
-      { label: 'Clientes', path: '/ficha-judicial/clientes' },
-      { label: 'Calificación y Asignación de Procesos', path: '/ficha-judicial/asignacion' },
-      { label: 'Reasignación de Procesos', path: '/ficha-judicial/reasignacion' },
-      { label: 'Otros', path: '/ficha/otros' },
+      { label: 'Clientes', path: '/cartera-judicial/clientes' },
+      { label: 'Calificación y Asignación de Procesos', path: '/cartera-judicial/asignacion-procesos' },
+      { label: 'Reasignación de Procesos', path: '/cartera-judicial/reasignacion-procesos' },
+      {
+        label: 'Otros',
+        subItems: [
+          {
+            label: 'Reporte de Pase a Judicial',
+            path: '/cartera-judicial/otros/reporte-pase-judicial',
+          },
+          {
+            label: 'Reasignación de Abogados Supervisores',
+            path: '/cartera-judicial/otros/reasignacion-abogados-supervisores',
+          },
+        ],
+      },
     ],
   },
   {
-    title: 'Ficha Concursal',
-    subItems: [{ label: 'Generador de Reportes', path: '/concursal/reportes' }],
+    title: 'Soporte de Gestión',
+    subItems: [{ label: 'Generador de Reportes', path: '/soporte-gestion/generador-reportes' }],
   },
 ];
 

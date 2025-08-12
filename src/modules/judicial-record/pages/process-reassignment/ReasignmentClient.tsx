@@ -41,7 +41,6 @@ const ReasignmentClient = () => {
             </div>
           </div>
 
-          // Data cargada del sistema
           <div className="border p-6 rounded-lg space-y-4">
             <h3 className="text-lg font-semibold">Datos Actuales:</h3>
             <div>

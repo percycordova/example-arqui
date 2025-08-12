@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { ButtonIcon, InputBase, Title } from '@/components/ui';
-import { TableTypePlace } from '../../components/tables/tableTypePlace/TableTypePlace';
 import {
-  DocumentArrowDownIcon,
   MagnifyingGlassIcon,
   PaintBrushIcon,
-  PrinterIcon,
 } from '@heroicons/react/24/outline';
 import { TableSearchClient } from '../../components/tables/tableSearchClient/TableSearchClient';
 

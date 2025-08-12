@@ -17,7 +17,7 @@ const columns: AnyColumnDef<LegalCaseRow>[] = [
       const clientName = getValue<string>();
 
       return (
-        <Link to={`/ficha-judicial/reasignacion/reasignar-cliente`} className="text-blue-600 hover:underline">
+        <Link to={`/cartera-judicial/reasignacion-procesos/reasignar-cliente`} className="text-blue-600 hover:underline">
           {clientName}
         </Link>
       );
