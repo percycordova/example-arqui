@@ -1,8 +1,10 @@
+// src/modules/judicial-record/components/tables/tableSupervisingAttorneys/TableSupervisingAttorneys.tsx
+import { useMemo, useState } from 'react';
 import { DataTable } from '@/components/ui';
 import { Link } from 'react-router-dom';
 import type { AnyColumnDef } from '@/types/AnyColumnDef';
-import { cn } from '@/utils/cn';
 import { TrashIcon } from '@heroicons/react/24/outline';
+import { Pagination } from '@/components/ui/pagination/Pagination';
 
 export type LegalCaseRow = {
   countBT: number;
@@ -25,47 +27,27 @@ export type LegalCaseRow = {
 const formatDate = (d: Date) =>
   new Date(d).toLocaleDateString('es-PE', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
-const handleDelete = (rowData: LegalCaseRow) => {
-  console.log('Eliminar fila:', rowData);
-};
-
 const columns: AnyColumnDef<LegalCaseRow>[] = [
   {
     accessorKey: 'countBT',
     header: 'Cuenta BT',
     meta: { align: 'center' },
-    cell: ({ getValue }) => {
-      return (
-        <Link
-          to={`/cartera-judicial/reasignacion-procesos/reasignar-cliente`}
-          className="text-blue-600 hover:underline"
-        >
-          {getValue<number>()}
-        </Link>
-      );
-    },
+    cell: ({ getValue }) => (
+      <Link
+        to={`/cartera-judicial/otros/reporte-pase-judicial/detalle`}
+        className="text-blue-600 hover:underline"
+      >
+        {getValue<number>()}
+      </Link>
+    ),
   },
-  {
-    accessorKey: 'clientName',
-    header: 'Cliente',
-    cell: ({ getValue }) => <span>{getValue<string>()}</span>,
-  },
-  {
-    accessorKey: 'place',
-    header: 'Plaza',
-    cell: ({ getValue }) => <span>{getValue<string>()}</span>,
-  },
-  {
-    accessorKey: 'refer',
-    header: 'Referencia',
-    cell: ({ getValue }) => <span>{getValue<string>()}</span>,
-  },
+  { accessorKey: 'clientName', header: 'Cliente', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
+  { accessorKey: 'place', header: 'Plaza', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
+  { accessorKey: 'refer', header: 'Referencia', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
   {
     accessorKey: 'startDay',
     header: 'Fecha Inicio',
-    cell: ({ getValue }) => (
-      <span className="whitespace-nowrap">{formatDate(getValue<Date>())}</span>
-    ),
+    cell: ({ getValue }) => <span className="whitespace-nowrap">{formatDate(getValue<Date>())}</span>,
   },
   { accessorKey: 'ce', header: 'CE', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
   { accessorKey: 'ca', header: 'CA', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
@@ -74,29 +56,16 @@ const columns: AnyColumnDef<LegalCaseRow>[] = [
   { accessorKey: 'con', header: 'CON', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
   { accessorKey: 'ro', header: 'RO', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
   { accessorKey: 'fi', header: 'FI', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
-  {
-    accessorKey: 'lawyer',
-    header: 'Abogado',
-    cell: ({ getValue }) => <span>{getValue<string>()}</span>,
-  },
-  {
-    accessorKey: 'estExt',
-    header: 'Est. Ext.',
-    cell: ({ getValue }) => <span>{getValue<string>()}</span>,
-  },
-  {
-    accessorKey: 'expInt',
-    header: 'Exp. Int.',
-    cell: ({ getValue }) => <span>{getValue<string>()}</span>,
-  },
-  
+  { accessorKey: 'lawyer', header: 'Abogado', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
+  { accessorKey: 'estExt', header: 'Est. Ext.', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
+  { accessorKey: 'expInt', header: 'Exp. Int.', cell: ({ getValue }) => <span>{getValue<string>()}</span> },
   {
     accessorKey: 'action',
-    header: 'Acción',
+    header: 'Eliminar',
     meta: { align: 'center' },
     cell: ({ row }) => (
       <button
-        onClick={() => handleDelete(row.original)}
+        onClick={() => console.log('Eliminar fila:', row.original)}
         className="text-red-600 hover:text-red-800"
         title="Eliminar"
       >
@@ -106,69 +75,62 @@ const columns: AnyColumnDef<LegalCaseRow>[] = [
   },
 ];
 
-const fakeData: LegalCaseRow[] = [
+// ——— Fake data ———
+const seed: LegalCaseRow[] = [
   {
     countBT: 1,
     clientName: 'COMPAÑÍA MINERA XYZ',
     place: 'Lima',
     refer: 'REF-001',
     startDay: new Date('2025-07-10'),
-    ce: 'CE-12',
-    ca: 'CA-03',
-    ju: 'JU-01',
-    val: 'VAL-02',
-    con: 'CON-04',
-    ro: 'RO-11',
-    fi: 'FI-08',
-    lawyer: 'KATHERINE ESPINOZA GOMEZ',
-    estExt: 'Pendiente',
-    expInt: 'EXP-INT-2025-001',
-  },
-  {
-    countBT: 2,
-    clientName: 'INDUSTRIAS DEL PERÚ S.A.',
-    place: 'Arequipa',
-    refer: 'REF-002',
-    startDay: new Date('2025-07-15'),
-    ce: 'CE-05',
-    ca: 'CA-07',
-    ju: 'JU-03',
-    val: 'VAL-01',
-    con: 'CON-02',
-    ro: 'RO-05',
-    fi: 'FI-02',
-    lawyer: 'OTRO SUPERVISOR',
-    estExt: 'En curso',
-    expInt: 'EXP-INT-2025-045',
-  },
-  {
-    countBT: 3,
-    clientName: 'SERVICIOS LOGÍSTICOS DEL NORTE',
-    place: 'Trujillo',
-    refer: 'REF-003',
-    startDay: new Date('2025-07-20'),
-    ce: 'CE-09',
-    ca: 'CA-10',
-    ju: 'JU-02',
-    val: 'VAL-05',
-    con: 'CON-06',
-    ro: 'RO-09',
-    fi: 'FI-12',
-    lawyer: 'KATHERINE ESPINOZA GOMEZ',
-    estExt: 'Cerrado',
-    expInt: 'EXP-INT-2025-078',
+    ce: 'CE-12', ca: 'CA-03', ju: 'JU-01', val: 'VAL-02', con: 'CON-04',
+    ro: 'RO-11', fi: 'FI-08', lawyer: 'KATHERINE ESPINOZA GOMEZ',
+    estExt: 'Pendiente', expInt: 'EXP-INT-2025-001',
   },
 ];
 
 export const TableSupervisingAttorneys = () => {
+
+  const [rows] = useState<LegalCaseRow[]>(() => {
+    const many = Array.from({ length: 57 }, (_, i) => ({
+      ...seed[0],
+      countBT: i + 1,
+      refer: `REF-${String(i + 1).padStart(3, '0')}`,
+    }));
+    return many;
+  });
+
+  const [page, setPage] = useState(1);        // 1-based
+  const [pageSize, setPageSize] = useState(10);
+
+  const pagedData = useMemo(() => {
+    const startIdx = (page - 1) * pageSize;
+    return rows.slice(startIdx, startIdx + pageSize);
+  }, [rows, page, pageSize]);
+
+  const handlePageSizeChange = (size: number) => {
+    setPageSize(size);
+    setPage(1);
+  };
+
   return (
-    <DataTable<LegalCaseRow>
-      data={fakeData}
-      columns={columns}
-      striped
-      dense={false}
-      stickyHeader
-      caption=""
-    />
+    <div>
+      <DataTable<LegalCaseRow>
+        data={pagedData}
+        columns={columns}
+        striped
+        dense={false}
+        stickyHeader
+        caption=""
+      />
+      <Pagination
+        totalItems={rows.length}
+        page={page}
+        pageSize={pageSize}
+        onPageChange={setPage}
+        onPageSizeChange={handlePageSizeChange}
+        pageSizeOptions={[5, 10, 20, 50]}
+      />
+    </div>
   );
 };

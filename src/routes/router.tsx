@@ -52,6 +52,11 @@ export const router = createBrowserRouter([
       {
         path: '/cartera-judicial/otros/reporte-pase-judicial',
         lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageReportTransferJudicial'),
+      },
+      
+      {
+        path: '/cartera-judicial/otros/reporte-pase-judicial/detalle',
+        lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageDetailReportTransferJudicial'),
       }
       /* Otros - Reasignación de Abogados Supervisores */
 
