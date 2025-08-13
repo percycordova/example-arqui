@@ -59,6 +59,7 @@ export const router = createBrowserRouter([
         lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageDetailReportTransferJudicial'),
       }
       /* Otros - Reasignación de Abogados Supervisores */
+      // Commit
 
 
 
