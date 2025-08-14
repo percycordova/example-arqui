@@ -29,7 +29,7 @@ const columns: AnyColumnDef<RowData>[] = [
       const plaza = getValue<string>().trim().toLowerCase()
       return (
         <button
-          onClick={() => navigate(`/ficha-judicial/plaza-tipo/${encodeURIComponent(plaza)}`)}
+          onClick={() => navigate(`/cartera-judicial/plaza-tipo/${encodeURIComponent(plaza)}`)}
           className="text-blue-600 cursor-pointer hover:underline "
         >
           {plaza}

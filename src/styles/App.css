@@ -27,4 +27,8 @@
     scroll-behavior: smooth;
     /* overflow-x: hidden; */
   }
+
+  body {
+    background-color: oklch(1 0 0);
+  }
 }
