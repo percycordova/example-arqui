@@ -9,6 +9,7 @@ interface SelectOption {
 interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: SelectOption[];
   color?: 'blue' | 'red' | 'gray' | 'primary';
+  defaultMessage?: string;
 }
 
 export const SelectBase = ({
@@ -16,6 +17,7 @@ export const SelectBase = ({
   color = 'gray',
   className = '',
   disabled,
+  defaultMessage = 'Seleccione una opción',
   ...rest
 }: SelectProps) => {
   const base =
@@ -33,7 +35,10 @@ export const SelectBase = ({
   const mergedClasses = cn(base, disabled ? disabledClasses : colorClasses[color], className);
 
   return (
-    <select className={mergedClasses} disabled={disabled} {...rest}>
+    <select className={mergedClasses} disabled={disabled} style={{ width: '400px' }} {...rest}>
+      <option value="" disabled>
+        {defaultMessage}
+      </option>
       {options.map(({ label, value }) => (
         <option key={value} value={value}>
           {label}
