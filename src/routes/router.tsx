@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
       /* Estudio Externo - Recepción de Archivos */
       {
         path: '/cartera-judicial/recepcion-archivos',
-        lazy: () => import('@/modules/judicial-record/pages/file-reception/PageFileReception'),
+        lazy: () => import('@/modules/judicial-record/pages/external-study/file-reception/PageFileReception'),
       },
 
       /* Clientes */
@@ -63,12 +63,13 @@ export const router = createBrowserRouter([
       {
         path: '/cartera-judicial/otros/reporte-pase-judicial/detalle',
         lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageDetailReportTransferJudicial'),
-      }
+      },
+      
       /* Otros - Reasignación de Abogados Supervisores */
       {
         path: '/cartera-judicial/otros/reasignacion-abogados-supervisores',
         lazy: () => import('@/modules/judicial-record/pages/others/reassignment-supervising-attorneys/PageSearchSupervisingAttorneys')
-      }
+      },
 
       /*----------------------------------------Módulo soporte gestión-------------------------------------*/
       {
