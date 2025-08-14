@@ -29,7 +29,7 @@ export const ButtonIcon = ({
     blue: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-200',
     red: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-200',
     green: 'bg-green-600 hover:bg-green-700 text-white',
-    gray: 'bg-gray-300 text-black border border-gray-200 hover:bg-gray-50 hover:border-gray-300 focus:ring-gray-200',
+    gray: 'bg-white text-black border border-gray-200 hover:bg-gray-50 hover:border-gray-300 focus:ring-gray-200',
     primary: 'bg-primary text-white hover:bg-primary/80 focus:ring-primary/30',
   };
 

@@ -20,18 +20,19 @@ export const router = createBrowserRouter([
         lazy: () => import('@/modules/judicial-record/pages/type-place/PageTypePlace'),
       },
       {
-        path: '/cartera-judicial/plaza-tipo:plaza',
+        path: '/cartera-judicial/plaza-tipo/:plaza',
         lazy: () =>
           import('@/modules/judicial-record/pages/type-place/internal/PageInternalTypePlace'),
       },
 
       /* Supervisor */
+
       /* Estudio Externo - Estudio Externo */
-      
+
       /* Estudio Externo - Recepción de Archivos */
       {
         path: '/cartera-judicial/recepcion-archivos',
-        lazy: () => import('@/modules/judicial-record/pages/external-study/file-reception/PageFileReception'),
+        lazy: () => import('@/modules/judicial-record/pages/file-reception/PageFileReception'),
       },
 
       /* Clientes */
@@ -40,34 +41,58 @@ export const router = createBrowserRouter([
       /* Reasignación de Procesos */
       {
         path: '/cartera-judicial/reasignacion-procesos',
-        lazy: () => import('@/modules/judicial-record/pages/process-reassignment/SearchProcessReasignment'),
+        lazy: () =>
+          import('@/modules/judicial-record/pages/process-reassignment/SearchProcessReasignment'),
       },
 
       {
         path: '/cartera-judicial/reasignacion-procesos/reasignar-cliente',
-        lazy: () => import('@/modules/judicial-record/pages/process-reassignment/ReasignmentClient'),
+        lazy: () =>
+          import('@/modules/judicial-record/pages/process-reassignment/ReasignmentClient'),
       },
 
       /* Otros - Reporte de Pase a Judicial */
       {
         path: '/cartera-judicial/otros/reporte-pase-judicial',
-        lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageReportTransferJudicial'),
+        lazy: () =>
+          import(
+            '@/modules/judicial-record/pages/others/report-transfer-judicial/PageReportTransferJudicial'
+          ),
       },
-      
+
       {
         path: '/cartera-judicial/otros/reporte-pase-judicial/detalle',
         lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageDetailReportTransferJudicial'),
-      },
-
+      }
       /* Otros - Reasignación de Abogados Supervisores */
       {
         path: '/cartera-judicial/otros/reasignacion-abogados-supervisores',
         lazy: () => import('@/modules/judicial-record/pages/others/reassignment-supervising-attorneys/PageSearchSupervisingAttorneys')
       }
 
-
-
-      
+      /*----------------------------------------Módulo soporte gestión-------------------------------------*/
+      {
+        path: '/soporte-gestion/generador-reportes',
+        lazy: () =>
+          import('@/modules/management-support/pages/templateMaintenance/PageTemplateMaintenance'),
+      },
+      {
+        path: '/soporte-gestion/generador-reportes/mostrar',
+        lazy: () =>
+          import('@/modules/management-support/pages/templateMaintenanceActions/show/PageShow'),
+      },
+      {
+        path: '/soporte-gestion/generador-reportes/ejecutar',
+        lazy: () =>
+          import(
+            '@/modules/management-support/pages/templateMaintenanceActions/execute/PageExecute'
+          ),
+      },
+      {
+        path: '/soporte-gestion/generador-reportes/editar',
+        lazy: () =>
+          import('@/modules/management-support/pages/templateMaintenanceActions/edit/PageEdit'),
+      },
     ],
   },
 ]);
