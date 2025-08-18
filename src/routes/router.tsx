@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       /*  */
       {
         path:'/cartera-judicial/clientes',
-        lazy: () => import('@/modules/common/pages/client-record/ResumeClient'),
+        lazy: () => import('@/modules/common/pages/navigation/Nav'),
       },
 
       /* Rutas para la cartera judicial*/
@@ -55,6 +55,7 @@ export const router = createBrowserRouter([
       },
 
       /* Clientes */
+
       /* Calificación y Asignación de Procesos */
 
       {

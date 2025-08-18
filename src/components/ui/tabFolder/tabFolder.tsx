@@ -1,4 +1,3 @@
-// src/components/ui/TabFolder.tsx
 import { useState, ReactNode } from 'react';
 
 interface TabFolderProps {
