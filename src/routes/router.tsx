@@ -32,6 +32,15 @@ export const router = createBrowserRouter([
       },
 
       /* Supervisor */
+      {
+        path: '/cartera-judicial/supervisor',
+        lazy: () => import('@/modules/judicial-record/pages/supervisor/PageSupervisor'),
+      },
+      {
+        path: '/cartera-judicial/supervisor/:name',
+        lazy: () =>
+          import('@/modules/judicial-record/pages/supervisor/interna/PageSupervisorInternal'),
+      },
 
       /* Estudio Externo - Estudio Externo */
       {
@@ -47,6 +56,17 @@ export const router = createBrowserRouter([
 
       /* Clientes */
       /* Calificación y Asignación de Procesos */
+
+      {
+        path: '/cartera-judicial/asignacion-procesos',
+        lazy: () =>
+          import('@/modules/judicial-record/pages/process-qualification/PageProcessQualification'),
+      },
+      {
+        path: '/cartera-judicial/asignacion-procesos/clientes/:name',
+        lazy: () =>
+          import('@/modules/judicial-record/pages/process-qualification/PageClientInternal'),
+      },
 
       /* Reasignación de Procesos */
       {
@@ -103,6 +123,12 @@ export const router = createBrowserRouter([
         path: '/soporte-gestion/generador-reportes/editar',
         lazy: () =>
           import('@/modules/management-support/pages/templateMaintenanceActions/edit/PageEdit'),
+      },
+
+      /*----------------------------------------Ficha-------------------------------------*/
+      {
+        path: '/ficha',
+        lazy: () => import('@/modules/judicial-record/pages/file/PageFile'),
       },
     ],
   },
