@@ -1,7 +1,9 @@
 'use client';
 
 import { SelectBase, Title } from '@/components/ui';
+import { ActionsButton } from '@/modules/management-support/components/actionsButton/ActionsButton';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const opcionesTipo = [
   { label: 'Personales', value: 'personales' },
@@ -27,6 +29,7 @@ const PageEditTemplateMaintenance = () => {
   const [nombre, setNombre] = useState(DEFAULTS.nombre);
   const [tipo, setTipo] = useState(DEFAULTS.tipo);
   const [categoria, setCategoria] = useState(DEFAULTS.categoria);
+  const navigate = useNavigate();
 
   return (
     <section className="mx-auto max-w-3xl space-y-8">
@@ -67,6 +70,11 @@ const PageEditTemplateMaintenance = () => {
           />
         </div>
       </div>
+      <ActionsButton
+        handleShow={() => navigate('/soporte-gestion/generador-reportes/mostrar')}
+        handleExecute={() => navigate('/soporte-gestion/generador-reportes/ejecutar')}
+        handleEdit={() => navigate('/soporte-gestion/generador-reportes/editar')}
+      />
     </section>
   );
 };
