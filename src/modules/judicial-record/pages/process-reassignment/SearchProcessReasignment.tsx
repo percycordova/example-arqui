@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { ButtonIcon, InputBase, Title } from '@/components/ui';
-import {
-  MagnifyingGlassIcon,
-  PaintBrushIcon,
-} from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, PaintBrushIcon } from '@heroicons/react/24/outline';
 import { TableSearchClient } from '../../components/tables/tableSearchClient/TableSearchClient';
 
 const SearchProcessReasignment = () => {
@@ -12,7 +9,7 @@ const SearchProcessReasignment = () => {
   const [showTable, setShowTable] = useState(false);
 
   const handleSearchClick = () => {
-    setShowTable(true); 
+    setShowTable(true);
   };
 
   const handleClearClick = () => {
@@ -42,16 +39,14 @@ const SearchProcessReasignment = () => {
           <div className="flex items-center gap-2">
             <ButtonIcon
               title="Buscar"
-              icon={<MagnifyingGlassIcon className="w-5 h-5" />}
-              iconPosition="left"
+              icon={<MagnifyingGlassIcon />}
               onClick={handleSearchClick}
-              className="bg-green-600 hover:bg-green-700 text-white"
+              color="green"
             />
             <ButtonIcon
               title="Limpiar"
               color="blue"
-              icon={<PaintBrushIcon className="w-5 h-5" />}
-              iconPosition="left"
+              icon={<PaintBrushIcon />}
               onClick={handleClearClick}
             />
           </div>
@@ -73,7 +68,7 @@ const SearchProcessReasignment = () => {
 
         {showTable && (
           <div className="my-8">
-            <TableSearchClient /> 
+            <TableSearchClient />
           </div>
         )}
       </div>

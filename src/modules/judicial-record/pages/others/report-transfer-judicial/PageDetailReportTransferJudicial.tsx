@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { ButtonIcon, InputBase, Title } from '@/components/ui';
-import { DocumentArrowDownIcon, PrinterIcon } from '@heroicons/react/24/outline';
-import { TableSupervisingAttorneys } from '@/modules/judicial-record/components/tables/tableSupervisingAttorneys/TableSupervisingAttorneys';
-import { RHFInput } from '@/components/forms/rhfInput/RHFInput';
+import { ModalBase, Title } from '@/components/ui';
 import { InputNoEditable } from '@/components/ui/inputBase/InputNoEditable';
 
 const detallePase = [
@@ -29,7 +26,26 @@ const tituloValores = [
   { label: 'FECHA DE ASIGNACIÓN DE ESTUDIO EXTERNO: ', content: '123456' },
 ];
 
+const detalleGarantiaCliente = [
+  { label: 'Nro de Cuenta BT: ', content: '123456' },
+  { label: 'Nro de Cuenta Cargo: ', content: '123456' },
+  { label: 'Tipo de Cartera: ', content: '123456' },
+  { label: 'Dato 0: ', content: '123456' },
+  { label: 'RUC/DNI: ', content: '71404761' },
+];
+
+const detalleGarantiaInmueble = [
+  { label: 'Dato 1: ', content: '123456' },
+  { label: 'Dato 2: ', content: '123456' },
+  { label: 'Dato 3: ', content: '123456' },
+  { label: 'Dato 4: ', content: '123456' },
+  { label: 'Dato 5:', content: '71404761' },
+];
+
 const PageDetailReportTransferJudicial = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="min-h-screen bg-white mb-10">
       <div className="mx-auto max-w-7xl px-4 py-6">
@@ -59,8 +75,33 @@ const PageDetailReportTransferJudicial = () => {
 
       <div className="mx-auto max-w-7xl px-4 py-6">
         <Title text="GARANTÍAS" />
-        <p className="cursor-pointer text-blue-600 underline">Detalle</p>
+        <p className="cursor-pointer text-blue-600 underline" onClick={openModal}>
+          Detalle
+        </p>
       </div>
+
+      <ModalBase
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        showXButton={true}
+        className="bg-white p-10 rounded-lg"
+      >
+        <Title text="DATOS DEL CLIENTE" />
+        <div className="grid grid-cols-2 gap-6 my-6">
+          {detalleGarantiaCliente.map((item, i) => (
+            <InputNoEditable key={i} label={item.label} content={item.content} fullWidth={false} />
+          ))}
+        </div>
+
+        <Title text="DATOS DE LOS INMUEBLES" />
+        <div className="grid grid-cols-2 gap-6 mt-6">
+          {detalleGarantiaInmueble.map((item, i) => (
+            <InputNoEditable key={i} label={item.label} content={item.content} fullWidth={false} />
+          ))}
+        </div>
+
+        
+      </ModalBase>
     </div>
   );
 };
