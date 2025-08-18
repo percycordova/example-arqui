@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { TabClassification } from '../../components/tabsProcessQualification/TabClassification';
 import { Title } from '@/components/ui';
 import { Tabs } from '@/components/common';

@@ -1,6 +1,8 @@
 import { cn } from '@/utils/cn';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
+type ButtonSize = 'sm' | 'base' | 'lg';
+
 interface ButtonIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
   children?: ReactNode;
@@ -8,6 +10,7 @@ interface ButtonIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   icon?: ReactNode;
   iconPosition?: 'left' | 'right';
+  size?: ButtonSize;
 }
 
 export const ButtonIcon = ({
@@ -20,15 +23,24 @@ export const ButtonIcon = ({
   className = '',
   type = 'button',
   disabled,
+  size = 'base',
   ...rest
 }: ButtonIconProps) => {
   const base =
-    'inline-flex cursor-pointer items-center justify-center px-4 py-3 rounded font-medium shadow-sm text-sm transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-1';
+    'inline-flex cursor-pointer items-center justify-center rounded font-medium shadow-sm transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-1';
 
+  // 👇 tamaños
+  const sizeClasses: Record<ButtonSize, string> = {
+    sm: 'px-3 py-2 text-xs',
+    base: 'px-4 py-3 text-sm', // original
+    lg: 'px-5 py-3.5 text-base w-full max-w-[320px]',
+  };
+
+  // 👇 colores
   const colorClasses = {
     blue: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-200',
     red: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-200',
-    green: 'bg-green-600 hover:bg-green-700 text-white',
+    green: 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-200',
     gray: 'bg-white text-black border border-gray-200 hover:bg-gray-50 hover:border-gray-300 focus:ring-gray-200',
     primary: 'bg-primary text-white hover:bg-primary/80 focus:ring-primary/30',
   };
@@ -37,17 +49,27 @@ export const ButtonIcon = ({
 
   const mergedClasses = cn(
     base,
+    sizeClasses[size],
     colorClasses[color],
     disabled && disabledClasses,
     loading && 'cursor-wait',
     className
   );
 
+  // Spinner size dinámico
+  const spinnerSize = size === 'sm' ? 'h-3 w-3' : size === 'lg' ? 'h-5 w-5' : 'h-4 w-4';
+  const iconSpacing = iconPosition === 'left' ? 'mr-2' : 'ml-2';
+  const iconSize = size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5';
+
   return (
     <button type={type} className={mergedClasses} disabled={disabled || loading} {...rest}>
       {loading && (
         <svg
-          className="animate-spin -ml-1 mr-2 h-4 w-4 text-gray-600"
+          className={cn(
+            'animate-spin -ml-1 mr-2',
+            spinnerSize,
+            color === 'gray' ? 'text-gray-600' : 'text-white'
+          )}
           fill="none"
           viewBox="0 0 24 24"
         >
@@ -69,11 +91,13 @@ export const ButtonIcon = ({
         </svg>
       )}
 
-      {icon && iconPosition === 'left' && <span className="mr-2 w-5 h-5">{icon}</span>}
+      {icon && iconPosition === 'left' && <span className={cn(iconSpacing, iconSize)}>{icon}</span>}
 
       {children ?? title}
 
-      {icon && iconPosition === 'right' && <span className="ml-2 w-5 h-5">{icon}</span>}
+      {icon && iconPosition === 'right' && (
+        <span className={cn(iconSpacing, iconSize)}>{icon}</span>
+      )}
     </button>
   );
 };
