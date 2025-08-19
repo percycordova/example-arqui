@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
 
       /* Estudio Externo - Recepción de Archivos */
       {
-        path: '/cartera-judicial/recepcion-archivos',
+        path: '/cartera-judicial/estudio-externo/recepcion-archivos',
         lazy: () => import('@/modules/judicial-record/pages/external-study/file-reception/PageFileReception'),
       },
 

@@ -1,8 +1,8 @@
-
 import { TabClassification } from '../../components/tabsProcessQualification/TabClassification';
 import { Title } from '@/components/ui';
 import { Tabs } from '@/components/common';
 import { Tab } from '@/components/common/tabs/Tabs';
+import { TabAssignment } from '../../components/tabsProcessQualification/TabAssignment';
 
 const PageClientInternal = () => {
   const data: Tab[] = [
@@ -14,13 +14,13 @@ const PageClientInternal = () => {
     {
       index: 2,
       label: 'Asignación de Procesos',
-      component: <TabClassification />,
+      component: <TabAssignment />,
     },
   ];
   return (
     <div>
       <Title text="CALIFICACIÓN Y ASIGNACIÓN DE PROCESOS" />
-      <div className='mt-8'>
+      <div className="mt-8">
         <Tabs tabs={data} />
       </div>
     </div>

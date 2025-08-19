@@ -1,8 +1,9 @@
 import { ButtonIcon, Title } from '@/components/ui';
-import { TableExternalFiles } from '../../components/tables/tableExternalFiles/TableExternalFiles';
 import { PaperClipIcon } from '@heroicons/react/24/outline';
 import { useModal } from '@/hooks/useModal';
-import { ModalFileAttach } from '../../components/modals/modalFileAttach/ModalFileAttach';
+import { TableExternalFiles } from '@/modules/judicial-record/components/tables/tableExternalFiles/TableExternalFiles';
+import { ModalFileAttach } from '@/modules/judicial-record/components/modals/modalFileAttach/ModalFileAttach';
+
 const PageFileReception = () => {
   const { closeModal, isOpen, openModal } = useModal();
   return (

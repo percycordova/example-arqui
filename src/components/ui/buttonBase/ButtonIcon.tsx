@@ -45,7 +45,7 @@ export const ButtonIcon = ({
     primary: 'bg-primary text-white hover:bg-primary/80 focus:ring-primary/30',
   };
 
-  const disabledClasses = 'opacity-50 cursor-not-allowed hover:bg-inherit border border-gray-200';
+  const disabledClasses = 'opacity-50 cursor-not-allowed hover:bg-inherit border border-gray-200 ';
 
   const mergedClasses = cn(
     base,
@@ -58,7 +58,7 @@ export const ButtonIcon = ({
 
   // Spinner size dinámico
   const spinnerSize = size === 'sm' ? 'h-3 w-3' : size === 'lg' ? 'h-5 w-5' : 'h-4 w-4';
-  const iconSpacing = iconPosition === 'left' ? 'mr-2' : 'ml-2';
+  const iconSpacing = title ? iconPosition === 'left' ? 'mr-2' : 'ml-2' : "";
   const iconSize = size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5';
 
   return (
@@ -93,7 +93,7 @@ export const ButtonIcon = ({
 
       {icon && iconPosition === 'left' && <span className={cn(iconSpacing, iconSize)}>{icon}</span>}
 
-      {children ?? title}
+      {title && title}
 
       {icon && iconPosition === 'right' && (
         <span className={cn(iconSpacing, iconSize)}>{icon}</span>
