@@ -12,6 +12,12 @@ export const router = createBrowserRouter([
         lazy: () => import('@/pages/notFound/NotFoundPage'),
       },
 
+      /*  */
+      {
+        path:'/cartera-judicial/clientes',
+        lazy: () => import('@/modules/common/pages/navigation/Nav'),
+      },
+
       /* Rutas para la cartera judicial*/
 
       /* Plaza/Tipo */
@@ -37,6 +43,10 @@ export const router = createBrowserRouter([
       },
 
       /* Estudio Externo - Estudio Externo */
+      {
+        path: '/cartera-judicial/external-study/external-study'
+
+      },
 
       /* Estudio Externo - Recepción de Archivos */
       {
@@ -45,6 +55,7 @@ export const router = createBrowserRouter([
       },
 
       /* Clientes */
+
       /* Calificación y Asignación de Procesos */
 
       {
@@ -84,7 +95,7 @@ export const router = createBrowserRouter([
         path: '/cartera-judicial/otros/reporte-pase-judicial/detalle',
         lazy: () => import('@/modules/judicial-record/pages/others/report-transfer-judicial/PageDetailReportTransferJudicial'),
       },
-      
+
       /* Otros - Reasignación de Abogados Supervisores */
       {
         path: '/cartera-judicial/otros/reasignacion-abogados-supervisores',

@@ -9,5 +9,5 @@ export { SelectBase } from './selectBase/SelectBase';
 export { Typography } from './typography/Typography';
 export { GenericTable } from './genericTable/GenericTable';
 export { BackButton } from './backButton/BackButton';
-export { Title } from './title/Title';
+export { Title } from './text/Title';
 export { DataTable } from './dataTable/DataTable';

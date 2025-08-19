@@ -2,7 +2,7 @@
 import * as yup from 'yup';
 import { FormProviderWrapper } from '@/components/ui/formProviderWrapper/FormProviderWrapper'; // Importa tu FormProviderWrapper
 import { RHFSelect } from '@/components/forms/rhfSelect/RHFSelect';
-import { Title } from '@/components/ui/title/Title';
+import { Title } from '@/components/ui/text/Title';
 import { RHFInput } from '@/components/forms';
 import { ButtonIcon } from '@/components/ui/buttonBase/ButtonIcon';
 import DocumentArrowDownIcon from '@heroicons/react/24/outline/DocumentArrowDownIcon';
